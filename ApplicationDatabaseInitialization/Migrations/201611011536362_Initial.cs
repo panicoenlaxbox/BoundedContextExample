@@ -51,6 +51,7 @@ namespace DataLayer.ApplicationDatabaseInitialization.Migrations
                         OrderId = c.Int(nullable: false),
                         ProductId = c.Int(nullable: false),
                         Units = c.Int(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)

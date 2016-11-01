@@ -8,6 +8,6 @@
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
         public int Units { get; set; }
-
+        public decimal Price { get; set; }
     }
 }

@@ -10,5 +10,10 @@ namespace Domain.Entities
         public decimal Amount { get; set; }
         public virtual Order Order { get; set; }
         public string Remarks { get; set; }
+
+        public override string ToString()
+        {
+            return $"Invoice {Id}, {CustomerId}, {Amount}";
+        }
     }
 }

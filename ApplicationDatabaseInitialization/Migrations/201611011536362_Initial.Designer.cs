@@ -13,7 +13,7 @@ namespace DataLayer.ApplicationDatabaseInitialization.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610311643044_Initial"; }
+            get { return "201611011536362_Initial"; }
         }
         
         string IMigrationMetadata.Source

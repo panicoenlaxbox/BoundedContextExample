@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer.ApplicationDatabaseInitialization;
 using DataLayer.BillingBoundedContext;
+using DataLayer.SalesBoundedContext;
 using Domain.Entities;
 
 namespace BoundedContextExample
@@ -13,27 +14,41 @@ namespace BoundedContextExample
     {
         static void Main(string[] args)
         {
+            int id;
+            int customerId;
+            decimal amount;
+
             using (var context = new ApplicationContext())
             {
                 Invoice invoice = context.Invoices.First();
-                Console.WriteLine(invoice.Id);
+                id = invoice.Id;
+                customerId = invoice.CustomerId;
+                amount = invoice.Amount;
             }
+
+            using (var context = new SalesContext())
+            {
+                var order = context.Orders.First();
+                Invoice invoice = order.Invoice;
+                Console.WriteLine(invoice);
+            }
+
             using (var context = new BillingContext())
             {
-                InvoiceReference invoice = context.Invoices.First();
-                Console.WriteLine(invoice.Id);
-                CustomerReference customer = invoice.Customer;
-                Console.WriteLine(customer.Id);
-                context.Invoices.Remove(invoice);
-                var newInvoice = new InvoiceReference()
+                InvoiceReference invoiceReference = context.Invoices.First();
+                Console.WriteLine(invoiceReference);
+                context.Invoices.Remove(invoiceReference);
+                context.SaveChanges();
+                var newInvoiceReference = new InvoiceReference
                 {
-                    Id = invoice.Id,
-                    CustomerId = customer.Id,
-                    Amount = 100m
+                    Id = id,
+                    CustomerId = customerId,
+                    Amount = amount
                 };
-                context.Invoices.Add(newInvoice);
+                context.Invoices.Add(newInvoiceReference);
                 context.SaveChanges();
             }
+
             Console.ReadKey();
         }
     }

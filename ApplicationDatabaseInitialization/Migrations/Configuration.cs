@@ -33,29 +33,22 @@ namespace DataLayer.ApplicationDatabaseInitialization.Migrations
             {
                 return;
             }
-            var customer = new Customer() { Name = "Acme", Email = "customer@acme.com" };
-            var product = new Product() { Description = "TNT" };
-            var order = new Order()
+            var customer = new Customer { Name = "Acme", Email = "customer@acme.com" };
+            context.Customers.Add(customer);
+            var product = new Product { Description = "TNT" };
+            context.Products.Add(product);
+            var order = new Order
             {
-                Customer = customer,
-                Lines = new List<OrderLine>()
-                {
-                    new OrderLine()
-                    {
-                        Product = product,
-                        Units = 1
-                    }
-                }
+                Customer = customer
             };
-            customer.Orders.Add(order);
-            var invoice = new Invoice()
+            order.AddLine(product, 5, 10m);
+            context.Orders.Add(order);
+            var invoice = new Invoice
             {
                 Order = order,
-                Customer = customer,
-                Amount = 100m
+                Customer = order.Customer,
+                Amount = order.GetAmount()
             };
-            context.Customers.Add(customer);
-            context.Products.Add(product);
             context.Invoices.Add(invoice);
         }
     }

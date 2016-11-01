@@ -8,5 +8,10 @@ namespace DataLayer.BillingBoundedContext
         public int CustomerId { get; set; }
         public virtual CustomerReference Customer { get; set; }
         public decimal Amount { get; set; }
+
+        public override string ToString()
+        {
+            return $"InvoiceReference {Id}, {CustomerId}, {Amount}";
+        }
     }
 }

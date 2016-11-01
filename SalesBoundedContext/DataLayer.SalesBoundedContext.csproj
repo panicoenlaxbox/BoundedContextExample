@@ -57,6 +57,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataLayer.Mappings\DataLayer.Mappings.csproj">
+      <Project>{A18AA047-7DB2-4E58-B514-0279FE44D152}</Project>
+      <Name>DataLayer.Mappings</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
       <Project>{c95373b5-4130-4e5b-9a1e-18d3e41a05d9}</Project>
       <Name>DataLayer</Name>
