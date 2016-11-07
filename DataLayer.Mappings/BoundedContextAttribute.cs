@@ -3,7 +3,7 @@
 namespace DataLayer.Mappings
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class BoundeContextAttribute : Attribute
+    public class BoundedContextAttribute : Attribute
     {
 
     }

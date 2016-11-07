@@ -4,7 +4,7 @@ using Domain.Entities;
 
 namespace DataLayer.Mappings
 {
-    [SalesBoundeContext]
+    [SalesBoundedContext]
     public class InvoiceMap : EntityTypeConfiguration<Invoice>
     {
         public InvoiceMap()

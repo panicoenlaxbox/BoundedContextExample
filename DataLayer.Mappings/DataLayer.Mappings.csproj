@@ -49,15 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillingBoundeContextAttribute.cs" />
-    <Compile Include="BoundeContextAttribute.cs" />
+    <Compile Include="BillingBoundedContextAttribute.cs" />
+    <Compile Include="BoundedContextAttribute.cs" />
     <Compile Include="CustomerMap.cs" />
     <Compile Include="InvoiceMap.cs" />
     <Compile Include="OrderLineMap.cs" />
     <Compile Include="OrderMap.cs" />
     <Compile Include="ProductMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalesBoundeContextAttribute.cs" />
+    <Compile Include="SalesBoundedContextAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace DataLayer.BillingBoundedContext
 {
-    public class BillingContext : BaseContext<BillingContext>
+    public class BillingContext : BoundedContext<BillingContext>
     {
         public DbSet<InvoiceReference> Invoices { get; set; }
 

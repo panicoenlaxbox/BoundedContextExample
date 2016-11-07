@@ -7,7 +7,7 @@ using Domain.Entities;
 
 namespace DataLayer.SalesBoundedContext
 {
-    public class SalesContext : BaseContext<SalesContext>
+    public class SalesContext : BoundedContext<SalesContext>
     {
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderLine> OrderLines { get; set; }
@@ -16,7 +16,7 @@ namespace DataLayer.SalesBoundedContext
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            var maps = Assembly.GetAssembly(typeof(CustomerMap)).GetTypes().Where(t => t.GetCustomAttribute<SalesBoundeContextAttribute>() != null).ToList();
+            var maps = Assembly.GetAssembly(typeof(CustomerMap)).GetTypes().Where(t => t.GetCustomAttribute<SalesBoundedContextAttribute>() != null).ToList();
             maps.ForEach(m => modelBuilder.Configurations.Add((dynamic) Activator.CreateInstance(m)));
             base.OnModelCreating(modelBuilder);
         }

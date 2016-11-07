@@ -3,7 +3,7 @@ using Domain.Entities;
 
 namespace DataLayer.Mappings
 {
-    [SalesBoundeContext]
+    [SalesBoundedContext]
     public class CustomerMap : EntityTypeConfiguration<Customer>
     {
         public CustomerMap()

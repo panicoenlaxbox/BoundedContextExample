@@ -28,7 +28,7 @@ namespace BoundedContextExample
 
             using (var context = new SalesContext())
             {
-                var order = context.Orders.First();
+                Order order = context.Orders.First();
                 Invoice invoice = order.Invoice;
                 Console.WriteLine(invoice);
             }
